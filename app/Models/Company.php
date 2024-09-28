@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class User extends Model
+class Company extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class User extends Model
     // You can check the migrations to see the code.
     public $timestamp = false;
 
-    //Declare the relationship with task
+    //Declare the relationship with tasks
     public function tasks(): HasMany{
         return $this->hasMany(Task::class);
     }
