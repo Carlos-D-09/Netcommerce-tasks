@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+//Tasks routes
+Route::prefix('tasks')->controller(TaskController::class)->group(function(){
+    Route::post('/create', 'create');
+});
+
+//Companies routes
+Route::prefix('companies')->controller(CompanyController::class)->group(function(){
+    Route::get('/', 'index');
 });
