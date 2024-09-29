@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+//Tasks routes
+Route::prefix('tasks')->controller(TaskController::class)->group(function(){
+    Route::post('/create', 'create');
+});
+
+//Companies routes
+Route::prefix('companies')->controller(CompanyController::class)->group(function(){
+    Route::get('/', 'index');
 });

@@ -21,7 +21,7 @@ class TaskSeeder extends Seeder
             ],[
                 'name' => 'Check technical test',
                 'description' => 'Check and rate the technical test',
-                'user_id' => 2,
+                'user_id' => 1,
                 'company_id' => 1
             ]
         ]);

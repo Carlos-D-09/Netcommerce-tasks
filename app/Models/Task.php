@@ -10,8 +10,8 @@ class Task extends Model
 {
     use HasFactory;
 
-    // Disable automatic timestamps since they aren't useful for the test.
-    // You can check the migrations to see the code.
+
+    // Indicate that it's not necessary to look for the default timestamps columns
     public $timestamp = false;
 
     //Declare the backref with users table
