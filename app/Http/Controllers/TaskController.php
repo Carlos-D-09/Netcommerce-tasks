@@ -11,7 +11,7 @@ class TaskController extends Controller
     public function create(Request $request){
         // Validate the inputs on the request
         $validator = Validator::make($request->all(),[
-            'name' => 'required|string|unique:tasks',
+            'name' => 'required|string',
             'description' => 'required|string',
             'start_at' => 'nullable|date|after_or_equal:'.now(),
             'expired_at' => 'nullable|date|after:start_at|after:'.now(),
@@ -43,6 +43,16 @@ class TaskController extends Controller
         $task->company_id = $validated['company_id'];
         $task->save();
 
-        return response()->json($task);
+        //Return the created task with the required data
+        return response()->json([
+            'id' => $task->id,
+            'name' => $task->name,
+            'description' => $task->description,
+            'user' => $task->user->name,
+            'company' => [
+                'id' => $task->company_id,
+                'name' => $task->company->name
+            ],
+        ]);
     }
 }

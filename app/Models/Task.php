@@ -10,6 +10,16 @@ class Task extends Model
 {
     use HasFactory;
 
+    //Indicate wich attributes are mass assignable
+    protected $fillable = [
+        'name',
+        'description',
+        'is_completed',
+        'start_at',
+        'expired_at',
+        'user_id',
+        'company_id'
+    ];
 
     // Indicate that it's not necessary to look for the default timestamps columns
     public $timestamps = false;

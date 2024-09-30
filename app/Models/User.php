@@ -10,6 +10,10 @@ class User extends Model
 {
     use HasFactory;
 
+    //Indicate wich attributes are mass assignable
+    protected $fillable = [
+        'name',
+    ];
 
     // Indicate that it's not necessary to look for the default timestamps columns
     public $timestamps = false;
