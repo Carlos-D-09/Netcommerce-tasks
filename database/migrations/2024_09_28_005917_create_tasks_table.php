@@ -17,7 +17,7 @@ return new class extends Migration
             $table->char('name', length:100);
             $table->string('description');
             $table->boolean('is_completed')->default(false);
-            $table->timestamp('start_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('start_at')->nullable();
             $table->timestamp('expired_at')->nullable();
 
             $table->foreignId('user_id')->constrained();
