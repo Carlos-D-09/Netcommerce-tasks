@@ -12,7 +12,7 @@ class Task extends Model
 
 
     // Indicate that it's not necessary to look for the default timestamps columns
-    public $timestamp = false;
+    public $timestamps = false;
 
     //Declare the backref with users table
     public function user(): BelongsTo{

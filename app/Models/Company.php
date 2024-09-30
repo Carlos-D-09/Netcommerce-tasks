@@ -11,16 +11,17 @@ class Company extends Model
     use HasFactory;
 
     // Indicate that it's not necessary to look for the default timestamps columns
-    public $timestamp = false;
+    public $timestamps = false;
 
     //Declare the relationship with tasks
     public function tasks(): HasMany{
         return $this->hasMany(Task::class);
     }
 
-
     //Return all the companies register and the tasks associated with each company
     public function getCompaniesTask(){
+
+        //Avoid lazy loaded
         $companies = Company::with(['tasks.user'])->get();
 
         //Use map method to iterate through each instance of the companies collection
